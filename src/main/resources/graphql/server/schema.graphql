@@ -40,6 +40,7 @@ union UnitedTask = SimpleTaskType | TaskGroupType
 
 type Query {
   schedule: ScheduleType!
+  todo: TodoType!
 }
 
 type ScheduleType {
@@ -56,4 +57,11 @@ type TaskGroupType implements TaskType {
   id: ID!
   name: String!
   tasks: [Task!]!
+}
+
+type TodoType {
+  id: ID!
+  isDone: Boolean!
+  task: UnitedTask!
+  tasks: [UnitedTask!]!
 }
